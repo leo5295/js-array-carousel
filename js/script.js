@@ -69,13 +69,43 @@ next.addEventListener('click', function(){
 
 });
 
+
 prev.addEventListener('click', function(){
+
     if(itemActive < imagesArray.length){
         //verifico l'elemento attivo (itemActive)
         items[itemActive].classList.remove('active')
         circles[itemActive].classList.remove('active')
         //incremento il suo valore di 1
         itemActive--;
+        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
+        //stessa cosa per i cerchi
+        items[itemActive].classList.add('active')
+        circles[itemActive].classList.add('active')
+    }
+
+    else{
+        
+        //verifico l'elemento attivo (itemActive)
+        items[itemActive].classList.remove('active')
+        circles[itemActive].classList.remove('active')
+        //incremento il suo valore di 1
+        itemActive = imagesArray.length;
+        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
+        //stessa cosa per i cerchi
+        items[itemActive].classList.add('active')
+        circles[itemActive].classList.add('active')
+    }
+})
+
+setInterval(function(){
+    
+    if(itemActive < imagesArray.length - 1){
+        //verifico l'elemento attivo (itemActive)
+        items[itemActive].classList.remove('active')
+        circles[itemActive].classList.remove('active')
+        //incremento il suo valore di 1
+        itemActive++;
         //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
         //stessa cosa per i cerchi
         items[itemActive].classList.add('active')
@@ -95,6 +125,6 @@ prev.addEventListener('click', function(){
         items[itemActive].classList.add('active')
         circles[itemActive].classList.add('active')
     }
-})
 
 
+},2000);
